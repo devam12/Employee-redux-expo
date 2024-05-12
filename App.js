@@ -1,14 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Route from './src/Route';
+import { Provider } from 'react-redux';
+import store from './src/store/store';
+import { AppRegistry } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar style={"dark"} />
+        <Provider store={store}>
+          <Route />
+        </Provider>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
+
+AppRegistry.registerComponent('employeeapp', () => App);
 
 const styles = StyleSheet.create({
   container: {
@@ -18,3 +30,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+
+
+
