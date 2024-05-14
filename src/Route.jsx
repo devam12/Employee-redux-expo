@@ -38,7 +38,7 @@ const Route = () => {
 
   const initialRoute = authToken
     ? RouteNames.HOME_SCREEN
-    : RouteNames.HOME_SCREEN;
+    : RouteNames.SIGNIN_SCREEN;
 
   if (loading) {
     return (
